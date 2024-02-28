@@ -18,7 +18,7 @@ abstract public class City {
         return temperature;
     }
 
-    abstract public String getTemperatureScale();
+    abstract public String getTemperatureUnit();
 
     public boolean getHasWeatherWarning() {
         return hasWeatherWarning;
