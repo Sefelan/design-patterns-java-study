@@ -3,7 +3,7 @@ public class Main {
     public static void main(String[] args) {
 
         // Спостережна станція
-        WeatherWarnings weatherWarnings = new WeatherWarnings(16, 100);     // допустима температура визначається в межах
+        WeatherWarnings weatherWarnings = new WeatherWarningsAdapter(16, 100);     // допустима температура визначається в межах
                                                                             // допустима температура визначається в межах
                                                                             // від 16 до 100 градусів по Фаренгейту
                                                                             // тобто від -8.89 до 37.78 градусів по Цельсію
