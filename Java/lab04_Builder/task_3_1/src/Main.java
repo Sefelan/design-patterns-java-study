@@ -1,9 +1,13 @@
 public class Main {
     public static void main(String[] args) {
-        Engine engine = new Engine(105, 140, Engine.Fuel.Petrol, 1.4f);
-        Wheel wheel = new Wheel(Wheel.Material.Steel, 14);
-        Car car = new Car(Car.Type.Sedan, Car.CarColor.White, engine, wheel);
+        CarDirector carDirector = new CarDirector();
 
-        System.out.println(car);
+        Car corsa = carDirector.createCorsa();
+        Car rav4 = carDirector.createRAV4();
+        Car teslaM3 = carDirector.createTeslaM3();
+
+        System.out.println(corsa);
+        System.out.println(rav4);
+        System.out.println(teslaM3);
     }
 }

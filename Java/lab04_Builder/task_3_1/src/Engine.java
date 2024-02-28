@@ -10,7 +10,38 @@ public class Engine {
     final Fuel fuel;     //  Вид пального
     final float volume;  //  Об'єм двигуна
 
-    public Engine(int power, int torque, Fuel fuel, float volume) {
+    public static class Builder {
+        private int power = 150;
+        private int torque = 200;
+        private Fuel fuel = Fuel.Petrol;
+        private float volume = 2.0f;
+
+        public Builder setPower(int power) {
+            this.power = power;
+            return this;
+        }
+
+        public Builder setTorque(int torque) {
+            this.torque = torque;
+            return this;
+        }
+
+        public Builder setFuel(Fuel fuel) {
+            this.fuel = fuel;
+            return this;
+        }
+
+        public Builder setVolume(float volume) {
+            this.volume = volume;
+            return this;
+        }
+
+        public Engine build() {
+            return new Engine(power,torque,fuel,volume);
+        }
+    }
+
+    private Engine(int power, int torque, Fuel fuel, float volume) {
         this.power = power;
         this.torque = torque;
         this.fuel = fuel;
@@ -19,11 +50,11 @@ public class Engine {
 
     @Override
     public String toString() {
-        return "Engine{" +
-                "power=" + power +
-                ", torque=" + torque +
-                ", fuel=" + fuel +
-                ", volume=" + volume +
-                '}';
+        return "Engine{\n" +
+                "\t\tpower=" + power + ",\n" +
+                "\t\ttorque=" + torque + ",\n" +
+                "\t\tfuel=" + fuel + ",\n" +
+                "\t\tvolume=" + volume + "\n" +
+                "\t}";
     }
 }

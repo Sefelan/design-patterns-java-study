@@ -1,5 +1,7 @@
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello!");
+        CarSimulator CS =  new CarSimulator();
+        CS.createTraffic();
+        CS.simulateTraffic();
     }
 }

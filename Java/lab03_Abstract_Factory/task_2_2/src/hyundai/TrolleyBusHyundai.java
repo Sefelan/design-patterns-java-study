@@ -1,0 +1,25 @@
+package hyundai;
+
+import transport.TrolleyBus;
+
+public class TrolleyBusHyundai implements TrolleyBus {
+    private final int cost;       // Вартість одиниці транспорту
+    private final int usageCost;  //  Вартість експлуатації = вартість одного кілометру пробігу
+
+    protected TrolleyBusHyundai(int cost, int usageCost) {
+        this.cost = cost;
+        this.usageCost = usageCost;
+    }
+
+    public int getCost() {
+        return cost;
+    }
+
+    public int getUsageCost() {
+        return usageCost;
+    }
+
+    public void goByContactNetwork() {
+        System.out.println("Hyundai trolleybus runs");
+    }
+}
