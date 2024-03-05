@@ -1,17 +1,21 @@
+import beverages.*;
+import locations.*;
+import milkadditives.*;
+
 public class Cafe {
 
     public static void main(String[] args) {
-        BlackChocolate blackChocolate = new BlackChocolate(3, 200);
-        BlackCoffee blackCoffee = new BlackCoffee(3, 200, true);
-        BlackTee blackTee = new BlackTee(0, 300);
+        Beverage blackChocolate = new Chocolate(3, new WithoutMilk(), new IndoorConsumption());
+        Beverage blackCoffee = new Coffee(3, new WithoutMilk(), new OutdoorConsumption());
+        Beverage blackTea = new Tea(0, new WithoutMilk(), new IndoorConsumption());
 
         beverageInfo(blackChocolate);
         beverageInfo(blackCoffee);
-        beverageInfo(blackTee);
+        beverageInfo(blackTea);
 
-        MilkChocolate milkChocolate = new MilkChocolate(3, 200);
-        CoffeeWithMilk coffeeWithMilk = new CoffeeWithMilk(3, 200);
-        TeeWithMilk teeWithMilk = new TeeWithMilk(2, 300);
+        Beverage milkChocolate = new Chocolate(3, new WithMilk(50), new IndoorConsumption());
+        Beverage coffeeWithMilk = new Coffee(3, new WithMilk(10), new IndoorConsumption());
+        Beverage teeWithMilk = new Tea(2, new WithMilk(10), new OutdoorConsumption());
 
         beverageInfo(milkChocolate);
         beverageInfo(coffeeWithMilk);
