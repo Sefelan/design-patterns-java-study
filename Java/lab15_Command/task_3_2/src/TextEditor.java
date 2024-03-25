@@ -2,6 +2,10 @@ public class TextEditor {
 
     private Document document;
 
+    private Command printCommand;
+    private Command showInfoCommand;
+    private Command saveCommand;
+
     final private Button saveButton;
     final private Button printButton;
 
@@ -26,6 +30,20 @@ public class TextEditor {
 
     public void newDocument(String name) {
         document = new Document(name);
+
+        printCommand = new PrintCommand(document);
+        showInfoCommand = new ShowInfoCommand(document);
+        saveCommand = new SaveCommand(document);
+
+        saveButton.setCommand(saveCommand);
+        printButton.setCommand(printCommand);
+
+        saveMenuItem.setCommand(saveCommand);
+        printMenuItem.setCommand(printCommand);
+        showInfoMenuItem.setCommand(showInfoCommand);
+
+        saveShortcut.setCommand(saveCommand);
+        printShortcut.setCommand(printCommand);
     }
 
     public void clickSaveButton() {

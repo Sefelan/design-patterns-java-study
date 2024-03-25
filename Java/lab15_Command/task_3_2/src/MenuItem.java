@@ -1,4 +1,11 @@
 public class MenuItem {
-    public void select() {
+    private Command command;
+
+    public void setCommand(Command command) {
+        this.command = command;
+    }
+
+    public void select(){
+        command.execute();
     }
 }
