@@ -1,27 +1,22 @@
-/**
- * Злітно-посадкова смуга
- */
-public class Runway {
+public class Runway extends Component{
+    final private String runwayName;
+    private boolean isAvailable;
 
-  /**
-   * Чи вільна смуга
-   */
-  private boolean isAvailable = true;
+    public Runway(String runwayName) {
+        this.runwayName = runwayName;
+        isAvailable = true;
+    }
 
-  /**
-   * Встановити стан злітно-посадкової смуги
-   * @param isAvailable значення для встановлення
-   */
-  public void setIsAvailable(boolean isAvailable) {
-    this.isAvailable = isAvailable;
-  }
+    public void setAvailable(boolean available) {
+        isAvailable = available;
+    }
 
-  /**
-   * Повертає значення чи вільна злітно-посадкова смуга
-   * @return чи вільна злітно-посадкова смуга
-   */
-  public boolean getIsAvailable() {
-    return isAvailable;
-  }
+    public boolean isAvailable() {
+        return isAvailable;
+    }
 
+    @Override
+    public String getComponentName() {
+        return runwayName;
+    }
 }

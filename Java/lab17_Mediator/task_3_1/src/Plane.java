@@ -1,77 +1,46 @@
-/**
- * Літак
- */
-public class Plane {
+public class Plane extends Component {
+    private int id;
+    private Runway clearRunway;
 
-  /**
-   * Чи злетів літак
-   */
-  private boolean isInTheAir;
+    public Plane(int id) {
+        this.id = id;
 
-  /**
-   * Ідентифікатор літака
-   */
-  private int id;
-
-  /**
-   * Злітно-посадкова смуга
-   */
-  private Runway runway;
-
-  /**
-   * Список літаків у польоті
-   */
-  private PlanesInFlight planesInFlight;
-
-  /**
-   * Список літаків, що приземлилися
-   */
-  private PlanesOnGround planesOnGround;
-
-
-  public Plane(int id) {
-    this.id = id;
-    isInTheAir = false;
-    runway = new Runway();
-    planesInFlight = new PlanesInFlight();
-    planesOnGround = new PlanesOnGround();
-    planesOnGround.addPlane(this);
-  }
-
-  /**
-   * Зліт літака
-   */
-  public void takeOff() {
-    if(!isInTheAir && runway.getIsAvailable()) {
-      System.out.println("Plane " + id + " is taking off...");
-      planesOnGround.removePlane(this);
-      planesInFlight.addPlane(this);
-      setIsInTheAir(true);
-      runway.setIsAvailable(false);
     }
-  }
 
-  /**
-   * Повертає ознаку чи літак в повітрі
-   * @return стан літака - чи в повітрі
-   */
-  public boolean getIsInTheAir() {
-    return isInTheAir;
-  }
+    public void setClearRunway(Runway clearRunway) {
+        this.clearRunway = clearRunway;
+    }
 
-  /**
-   * Встановити ознаку чи злетів літак
-   * @param isInTheAir чи злетів літак
-   */
-  public void setIsInTheAir(boolean isInTheAir) {
-    this.isInTheAir = isInTheAir;
-  }
+    public Runway getClearRunway() {
+        return clearRunway;
+    }
 
-  /**
-   * Ідентифікатор літака
-   * @return ідентифікатор
-   */
-  public int getId() {
-    return id;
-  }
+    public void requestRunway() {
+        mediator.handleMessage(this, "Requesting runway");
+    }
+
+    public void takeOff() {
+        if (clearRunway != null) {
+            System.out.println("Plane " + id + " is taking off...");
+            clearRunway.setAvailable(true);
+            clearRunway = null;
+        } else {
+            System.out.println("Plane " + id + " does not have clear runway access");
+        }
+    }
+
+    public void land() {
+        if (clearRunway != null) {
+            System.out.println("Plane " + id + " is landing...");
+            clearRunway.setAvailable(true);
+            clearRunway = null;
+        } else {
+            System.out.println("Plane " + id + " does not have clear runway access");
+        }
+    }
+
+    @Override
+    public String getComponentName() {
+        return "Plane " + id;
+    }
 }
