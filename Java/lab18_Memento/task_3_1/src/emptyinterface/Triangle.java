@@ -1,8 +1,22 @@
+package emptyinterface;
+
 public class Triangle {
 
     private float a;
     private float b;
     private float c;
+
+    public Memento save() {
+        return new TriangleMemento(a,b,c);
+    }
+
+    public void restore(Memento memento) {
+        if (memento instanceof TriangleMemento){
+            a = ((TriangleMemento) memento).getA();
+            b = ((TriangleMemento) memento).getB();
+            c = ((TriangleMemento) memento).getC();
+        }
+    }
 
     /**
      * Перевіряє чи існує трикутник з заданими сторонами
@@ -77,5 +91,12 @@ public class Triangle {
         return (float) Math.sqrt(s);
     }
 
-
+    @Override
+    public String toString() {
+        return "Triangle{" +
+                "a=" + a +
+                ", b=" + b +
+                ", c=" + c +
+                '}';
+    }
 }

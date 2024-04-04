@@ -1,7 +1,10 @@
+package emptyinterface;
+
 public class Client {
 
     public static void main(String[] args) {
-        Triangle triangle = new Triangle(3, 3, 3);
+        Triangle basicTriangle = new Triangle(3, 3, 3);
+        TriangleCaretaker triangle = new TriangleCaretaker(basicTriangle);
 
         String[] edges = {
                 "b",
@@ -31,12 +34,26 @@ public class Client {
                     triangle.setC(values[index]);
                     break;
             }
-
+            System.out.println(triangle);
             System.out.println("Volume = " + triangle.square());
         }
 
+        System.out.println("\n=========TESTING=========\n");
+        System.out.println(triangle);
+        triangle.undo();
+        System.out.println(triangle);
+        triangle.undo();
+        System.out.println(triangle);
+        triangle.redo();
+        System.out.println(triangle);
+        triangle.setA(5);
+        System.out.println(triangle);
+        triangle.redo();
+        System.out.println(triangle);
 
-
+        triangle.restoreMaxSquare();
+        System.out.println("\nMax volume = "+ triangle.square());
+        System.out.println("for " + triangle);
     }
 
 }
