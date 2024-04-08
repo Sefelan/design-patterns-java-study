@@ -56,9 +56,9 @@ public class Client {
         caretaker.redo();
         System.out.println(triangle);
 
-        triangle.restoreMaxSquare();
-        System.out.println("\nMax volume = "+ triangle.square());
-        System.out.println("for " + triangle);
+//        triangle.restoreMaxSquare();
+//        System.out.println("\nMax volume = "+ triangle.square());
+//        System.out.println("for " + triangle);
 
     }
 
