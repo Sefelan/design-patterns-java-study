@@ -1,5 +1,6 @@
-public class Main {
+import media.MediaPlayer;
 
+public class Main {
     public static void main(String[] args) {
         MediaPlayer mediaPlayer = new MediaPlayer();
         mediaPlayer.play();
@@ -8,5 +9,4 @@ public class Main {
         mediaPlayer.play();
         mediaPlayer.play();
     }
-
 }

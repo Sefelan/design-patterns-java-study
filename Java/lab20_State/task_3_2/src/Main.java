@@ -1,3 +1,5 @@
+import media.MediaPlayer;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -19,6 +21,5 @@ public class Main {
         mediaPlayer.stop();
         mediaPlayer.play();
         mediaPlayer.stop();
-
     }
 }
