@@ -1,12 +1,13 @@
 public class Customer {
+    private BankAccount bankAccount;
 
-  public void makeBankAccountPayment(int amount) {
-    System.out.println("Payment of $" + amount + " made from bank account.");
-  }
+    public void setBankAccount(BankAccount bankAccount) {
+        this.bankAccount = bankAccount;
+    }
 
-  public void makePayPalPayment(int amount) {
-    System.out.println("Payment of $" + amount + " made from PayPal.");
-  }
-
-
+    public void makePayment(int amount) {
+        if (bankAccount != null) {
+            bankAccount.makePayment(amount);
+        }
+    }
 }
