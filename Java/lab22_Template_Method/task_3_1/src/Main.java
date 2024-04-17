@@ -1,11 +1,13 @@
+import characters.*;
+
 public class Main {
 
-  public static void main(String[] args) {
-    Pirate pirate = new Pirate();
-    pirate.defendAgainstAttack();
+    public static void main(String[] args) {
+        GameCharacter pirate = new Pirate();
+        pirate.defendAgainstAttack();
 
-    Troll troll = new Troll();
-    troll.defendAgainstAttack();
-  }
+        GameCharacter troll = new Troll();
+        troll.defendAgainstAttack();
+    }
 
 }
