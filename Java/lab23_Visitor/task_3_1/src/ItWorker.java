@@ -1,8 +1,8 @@
-public class SalesPerson implements Employee {
+public class ItWorker implements Employee {
 
     private double salary;
 
-    public SalesPerson(double salary) {
+    public ItWorker(double salary) {
         this.salary = salary;
     }
 
@@ -19,4 +19,5 @@ public class SalesPerson implements Employee {
     public void accept(SalaryVisitor salaryVisitor) {
         salaryVisitor.visit(this);
     }
+
 }

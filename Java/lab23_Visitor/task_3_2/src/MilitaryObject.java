@@ -1,2 +1,3 @@
-public abstract class MilitaryObject {
+public interface MilitaryObject {
+    void overLook(Spy spy);
 }

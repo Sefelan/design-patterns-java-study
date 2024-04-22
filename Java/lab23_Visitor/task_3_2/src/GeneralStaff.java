@@ -1,4 +1,4 @@
-public class GeneralStaff extends MilitaryObject {
+public class GeneralStaff implements MilitaryObject {
 
     /**
      * Кількість генералів на військовій базі
@@ -8,11 +8,11 @@ public class GeneralStaff extends MilitaryObject {
     /**
      * Кількість секретних паперів на військовій базі
      */
-    private int secretPaper;
+    private int secretPapers;
 
-    public GeneralStaff(int generals, int secretPaper) {
+    public GeneralStaff(int generals, int secretPapers) {
         this.generals = generals;
-        this.secretPaper = secretPaper;
+        this.secretPapers = secretPapers;
     }
 
     public int getGenerals() {
@@ -23,19 +23,24 @@ public class GeneralStaff extends MilitaryObject {
         this.generals = generals;
     }
 
-    public int getSecretPaper() {
-        return secretPaper;
+    public int getSecretPapers() {
+        return secretPapers;
     }
 
-    public void setSecretPaper(int secretPaper) {
-        this.secretPaper = secretPaper;
+    public void setSecretPapers(int secretPapers) {
+        this.secretPapers = secretPapers;
     }
 
     @Override
     public String toString() {
         return "GeneralStaff{" +
                 "generals=" + generals +
-                ", secretPaper=" + secretPaper +
+                ", secretPapers=" + secretPapers +
                 '}';
+    }
+
+    @Override
+    public void overLook(Spy spy) {
+        spy.visit(this);
     }
 }

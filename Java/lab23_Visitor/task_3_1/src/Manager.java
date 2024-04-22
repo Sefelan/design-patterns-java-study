@@ -1,18 +1,23 @@
 public class Manager implements Employee {
 
-    private int salary;
+    private double salary;
 
-    public Manager(int salary) {
+    public Manager(double salary) {
         this.salary = salary;
     }
 
-    public void setSalary(int salary) {
+    public void setSalary(double salary) {
         this.salary = salary;
     }
 
     @Override
-    public int getSalary() {
+    public double getSalary() {
         return salary;
+    }
+
+    @Override
+    public void accept(SalaryVisitor salaryVisitor) {
+        salaryVisitor.visit(this);
     }
 
 }

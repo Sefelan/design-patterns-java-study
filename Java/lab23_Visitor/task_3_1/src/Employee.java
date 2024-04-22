@@ -1,5 +1,4 @@
 public interface Employee {
-
-    int getSalary();
-
+    double getSalary();
+    void accept(SalaryVisitor salaryVisitor);
 }

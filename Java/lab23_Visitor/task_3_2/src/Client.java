@@ -8,9 +8,23 @@ public class Client {
         militaryObjects.add(new GeneralStaff(20, 100));
         militaryObjects.add(new MilitaryBase(10, 1000, 300, 20));
 
-        for (MilitaryObject military : militaryObjects) {
-            System.out.println(military);
+        System.out.println("\nEverything is fine:)");
+        for (MilitaryObject militaryObject : militaryObjects) {
+            System.out.println(militaryObject);
         }
+
+        System.out.println("\nHere comes the spy...");
+        Spy secretAgent = new SecretAgent();
+        for (MilitaryObject militaryObject : militaryObjects) {
+            militaryObject.overLook(secretAgent);
+        }
+
+        System.out.println("\nAnd now, the saboteur strikes!");
+        Saboteur saboteur = new Saboteur();
+        for (MilitaryObject militaryObject : militaryObjects) {
+            militaryObject.overLook(saboteur);
+        }
+
     }
 
 }
